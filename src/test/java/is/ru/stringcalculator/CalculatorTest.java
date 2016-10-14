@@ -2,7 +2,6 @@ package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import java.util.ArrayList;
 
 public class CalculatorTest {
 
@@ -33,6 +32,19 @@ public class CalculatorTest {
     @Test
     public void testLineBreak(){
     	assertEquals(6, Calculator.add("1\n2,3"));
+    }
+
+    @Test
+    public void testNegative(){
+    	try
+        {
+            Calculator.add("2,-4,3,-5");
+        }
+        catch (Exception e)
+        {
+            assertEquals("Negatives not allowed: -4,-5", e.getMessage());
+        }
+        
     }
 
     @Test
