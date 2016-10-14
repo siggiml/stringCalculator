@@ -1,5 +1,7 @@
 package is.ru.stringcalculator;
 
+import java.util.ArrayList;
+
 public class Calculator {
 
 	public static int add(String text){
@@ -10,7 +12,7 @@ public class Calculator {
 			return sum(splitNumbers(text));
 		}
 		else
-			return 1;
+			return toInt(text);
 	}
 
 	private static int toInt(String number){
@@ -25,8 +27,11 @@ public class Calculator {
       
     private static int sum(String[] numbers){
  	    int total = 0;
+ 	    int intNum = 0;
         for(String number : numbers){
-		    total += toInt(number);
+        	intNum = toInt(number);
+        	if(intNum <= 1000)
+		    	total += intNum;
 		}
 		return total;
     }
